@@ -18,23 +18,27 @@ public class Rotor {
 		wiring = new int[26];
 		
 		for(int i =0; i < 26; i++)
-			wiring[i] = WIRINGSETUPS[rotorNum].charAt(i);
+			wiring[i] = WIRINGSETUPS[rotorNum].charAt(i) - 65;
 	}
 	
 	public int process(int in, boolean rotate) {
-		int ret = wiring[(in + pos) % 26];
-		if(rotate)
-			advance();
-		return ret;
+		//take the input
+		//based on rotation of rotor find pinned letter
+		//from that pinned letter go to wiring setup and find that pair
+		//then find pinned output letter from wiring setup pair output
+		int intermed = (in + pos) %26;
+		intermed = wiring[intermed];
+		return intermed - pos;
 	}
 	
-	public void advance() {
-		pos = (pos + 1) % 26;
+	public int advance() {
+		int p = pos + 1;
+		pos = p % 26;
+		return p;
 	}
 	
 	public void reset() {
 		pos = intlPos;
 	}
-	
-	
+
 }

@@ -23,6 +23,11 @@ public class EnigmaMachine extends PApplet {
 	public void setup() {
 		f = createFont("Arial", 16, true);
 		textFont(f, 40);
+		text("Rotors: ", 275,525);
+		fill(255);
+		rect(475,475, 75,75);
+		rect(575,475, 75,75);
+		rect(675,475, 75,75);
 
 		int diameter = 100;
 		int spacing = 10;
@@ -58,10 +63,7 @@ public class EnigmaMachine extends PApplet {
 		for (Letter l : letters) {
 			l.draw();
 		}
-		fill(255);
-		rect(475,475, 75,75);
-		rect(575,475, 75,75);
-		rect(675,475, 75,75);
+		
 		
 		for (Letter l : l2) {
 			l.draw();
@@ -69,7 +71,7 @@ public class EnigmaMachine extends PApplet {
 	}
 
 	public void keyPressed() {
-		if (!keyDown) {
+		if (!keyDown && Character.isLetter(key)) {
 			String s = Character.toString(key);
 			s = s.toUpperCase();
 			c = s.charAt(0);
