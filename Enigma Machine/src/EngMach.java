@@ -18,9 +18,28 @@ public class EngMach {
 		return new int[] {r1.getPos(),r2.getPos(),r3.getPos()};
 	}
 	
-	public int encode(char inChar) {
+	/*public int encode(char inChar) {
 		System.out.println();
 		return 65 + r3.process(r2.process(r1.process(r1.process(r2.process(r3.process(((int)inChar) - 65))))));
+	}*/
+	
+	public int encode(char inChar) {
+		int p = ((int)inChar) - 65;
+		System.out.println(p + "  " + inChar );
+		p = r3.process(p,true);
+		System.out.println(p + "  ");
+		p = r2.process(p,true);
+		System.out.println(p + "  ");
+		p = r1.process(p,true);
+		System.out.println(p + "  ");
+		p = r1.process(p,false);
+		System.out.println(p + "  ");
+		p = r2.process(p,false);
+		System.out.println(p + "  ");
+		p = r3.process(p,false);
+		System.out.println(p + "  ");
+		
+		return 65 + p;
 	}
 	
 	public void advance() {
@@ -32,3 +51,5 @@ public class EngMach {
 		}
 	}
 }
+
+
