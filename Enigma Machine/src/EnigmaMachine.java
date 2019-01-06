@@ -18,6 +18,7 @@ public class EnigmaMachine extends PApplet {
 	public static final String KYBD = "QWERTYUIOPASDFGHJKLZXCVBNM";
 	boolean keyDown = false;
 	char c;
+	int encoded;
 	EngMach enigma;
 	
 	/**
@@ -82,8 +83,10 @@ public class EnigmaMachine extends PApplet {
 			c = s.charAt(0);
 			letters[KYBD.indexOf(c)].isLit = !letters[KYBD.indexOf(c)].isLit;
 			keyDown = true;
+			encoded = enigma.encode(c);
+			System.out.println(encoded);
 			enigma.advance();
-			//TODO add what happens to encode the letter and output to the display
+			l2[KYBD.indexOf((char)encoded)].isLit = !l2[KYBD.indexOf((char)encoded)].isLit;
 		}
 	}
 	
@@ -95,6 +98,7 @@ public class EnigmaMachine extends PApplet {
 		s = s.toUpperCase();
 		if (keyDown && s.charAt(0) == c) {
 			letters[KYBD.indexOf(c)].isLit = !letters[KYBD.indexOf(c)].isLit;
+			l2[KYBD.indexOf((char)encoded)].isLit = !l2[KYBD.indexOf((char)encoded)].isLit;
 			keyDown = false;
 		}
 	}

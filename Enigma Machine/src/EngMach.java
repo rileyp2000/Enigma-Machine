@@ -18,8 +18,8 @@ public class EngMach {
 		return new int[] {r1.getPos(),r2.getPos(),r3.getPos()};
 	}
 	
-	public void encode() {
-		
+	public int encode(char inChar) {
+		return 65 + r1.process(r2.process(r3.process(r3.process(r2.process(r1.process((int)inChar))))));
 	}
 	
 	public void advance() {
