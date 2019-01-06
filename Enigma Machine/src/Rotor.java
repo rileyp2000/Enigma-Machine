@@ -11,7 +11,7 @@ public class Rotor {
 	private int pos;
 	private int intlPos;
 	// index rep A-Z, num in each the paired value
-	private int[] wiring;
+	int[] wiring;
 	private final String[] WIRINGSETUPS = new String[] { "EKMFLGDQVZNTOWYHXUSPAIBRCJ", "AJDKSIRUXBLHWTMCQGZNPYFVOE",
 			"BDFHJLCPRTXVZNYEIWGAKMUSQO", "ESOVPZJAYQUIRHXLNFTGKDCMWB", "VZBRGITYUPSDNHLXAWMJQOFECK" };
 

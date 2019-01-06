@@ -122,7 +122,7 @@ public class EnigmaMachine extends PApplet {
 		}*/
 		
 		//Debug
-		Rotor[] ret = new Rotor[]{new Rotor(0,0),new Rotor(1,0),new Rotor(2,0)};
+		Rotor[] ret = new Rotor[]{new Rotor(2,0),new Rotor(1,0),new Rotor(0,0)};
 		
 		return ret;
 		

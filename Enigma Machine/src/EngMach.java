@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class EngMach {
 	private Rotor r1,r2,r3;
@@ -25,9 +26,9 @@ public class EngMach {
 	
 	public int encode(char inChar) {
 		int p = ((int)inChar) - 65;
-		System.out.println(p + "  " + inChar );
+		System.out.println(p + "  " + inChar + Arrays.toString(r3.wiring));
 		p = r3.process(p,true);
-		System.out.println(p + "  ");
+		/*System.out.println(p + "  ");
 		p = r2.process(p,true);
 		System.out.println(p + "  ");
 		p = r1.process(p,true);
@@ -37,7 +38,7 @@ public class EngMach {
 		p = r2.process(p,false);
 		System.out.println(p + "  ");
 		p = r3.process(p,false);
-		System.out.println(p + "  ");
+		System.out.println(p + "  ");*/
 		
 		return 65 + p;
 	}
