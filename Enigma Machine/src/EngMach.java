@@ -19,7 +19,8 @@ public class EngMach {
 	}
 	
 	public int encode(char inChar) {
-		return 65 + r1.process(r2.process(r3.process(r3.process(r2.process(r1.process((int)inChar))))));
+		System.out.println();
+		return 65 + r3.process(r2.process(r1.process(r1.process(r2.process(r3.process(((int)inChar) - 65))))));
 	}
 	
 	public void advance() {

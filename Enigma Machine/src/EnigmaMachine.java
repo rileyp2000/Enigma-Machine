@@ -1,13 +1,12 @@
 /**
- * This class handles most of the p5.js stuff and runs the machine
+ * This class handles most of the p5 stuff and runs the machine
  * @author Patrick Riley
  */
 
 import processing.core.PApplet;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 import processing.core.*;
 
@@ -84,8 +83,7 @@ public class EnigmaMachine extends PApplet {
 			letters[KYBD.indexOf(c)].isLit = !letters[KYBD.indexOf(c)].isLit;
 			keyDown = true;
 			encoded = enigma.encode(c);
-			System.out.println(encoded);
-			enigma.advance();
+			System.out.println(encoded + " " + (char)encoded);
 			l2[KYBD.indexOf((char)encoded)].isLit = !l2[KYBD.indexOf((char)encoded)].isLit;
 		}
 	}
@@ -97,6 +95,7 @@ public class EnigmaMachine extends PApplet {
 		String s = Character.toString(key);
 		s = s.toUpperCase();
 		if (keyDown && s.charAt(0) == c) {
+			enigma.advance();
 			letters[KYBD.indexOf(c)].isLit = !letters[KYBD.indexOf(c)].isLit;
 			l2[KYBD.indexOf((char)encoded)].isLit = !l2[KYBD.indexOf((char)encoded)].isLit;
 			keyDown = false;
@@ -108,19 +107,22 @@ public class EnigmaMachine extends PApplet {
 	 * @return An array of the rotors to be used in the machine
 	 */
 	public Rotor[] createRotors() {
-		Scanner kybd = new Scanner(System.in);
-		System.out.println("please input 3 rotors seperated by spaces");
-		String str = kybd.nextLine();
+		/*//Scanner kybd = new Scanner(System.in);
+		//System.out.println("please input 3 rotors seperated by spaces");
+		String str = JOptionPane.showInputDialog("Please input 3 rotors (0-4) seperated by spaces:");//kybd.nextLine();
 		String[] rotors = str.split(" ");
 		
-		System.out.println("Please the 3 starting positions of the rotors");
-		String intlPoses = kybd.nextLine();
+		//System.out.println("Please the 3 starting positions of the rotors");
+		String intlPoses = JOptionPane.showInputDialog("Please pick the 3 starting positions of the rotors:");//kybd.nextLine();
 		String[] starting = intlPoses.split(" ");
 		
 		Rotor[] ret = new Rotor[3];
 		for(int i = 0; i < 3; i++) {
 			ret[i] = new Rotor(Integer.parseInt(rotors[i]), Integer.parseInt(starting[i]));
-		}
+		}*/
+		
+		//Debug
+		Rotor[] ret = new Rotor[]{new Rotor(0,0),new Rotor(1,0),new Rotor(2,0)};
 		
 		return ret;
 		

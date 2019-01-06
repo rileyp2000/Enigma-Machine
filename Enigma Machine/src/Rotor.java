@@ -40,9 +40,14 @@ public class Rotor {
 	 * @return output of wiring setup
 	 */
 	public int process(int in) {
+		System.out.print("input: " + in + " ");
 		int intermed = (in + pos) %26;
+		System.out.println(intermed);
 		intermed = wiring[intermed];
-		return intermed - pos;
+		if(intermed >= pos)
+			return intermed - pos;
+		else
+			return pos - intermed;
 	}
 	
 	/**
