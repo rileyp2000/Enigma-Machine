@@ -4,10 +4,7 @@
  */
 
 import processing.core.PApplet;
-import java.util.Scanner;
-
 import javax.swing.JOptionPane;
-
 import processing.core.*;
 
 public class EnigmaMachine extends PApplet {
@@ -107,7 +104,7 @@ public class EnigmaMachine extends PApplet {
 	 * @return An array of the rotors to be used in the machine
 	 */
 	public Rotor[] createRotors() {
-		/*//Scanner kybd = new Scanner(System.in);
+		//Scanner kybd = new Scanner(System.in);
 		//System.out.println("please input 3 rotors seperated by spaces");
 		String str = JOptionPane.showInputDialog("Please input 3 rotors (0-4) seperated by spaces:");//kybd.nextLine();
 		String[] rotors = str.split(" ");
@@ -119,15 +116,16 @@ public class EnigmaMachine extends PApplet {
 		Rotor[] ret = new Rotor[3];
 		for(int i = 0; i < 3; i++) {
 			ret[i] = new Rotor(Integer.parseInt(rotors[i]), Integer.parseInt(starting[i]));
-		}*/
+		}
 		
-		//Debug
-		Rotor[] ret = new Rotor[]{new Rotor(2,0),new Rotor(1,0),new Rotor(0,0)};
 		
 		return ret;
 		
 	}
 	
+	/**
+	 * Draws the rotor letters
+	 */
 	public void drawRotorPos(){
 		int[] poss = enigma.getRotorPos();
 		//drawRotorBox();

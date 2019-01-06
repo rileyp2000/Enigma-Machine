@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /**
  * This class is a rotor within the enigma machine
  * 
@@ -49,18 +47,17 @@ public class Rotor {
 				return intermed - pos;
 			else
 				return 26 - (pos - intermed);
-		}
-		else {
-			//add offset
-			//go from val to pos 
-			//subtract offset
+		} else {
+			// add offset
+			// go from val to pos
+			// subtract offset
 			int intermed = (in + pos) % 26;
-			
-			for(int i = 0; i < 26; i ++) {
-				if(wiring[i] == intermed) {
-					intermed = i; 
+
+			for (int i = 0; i < 26; i++) {
+				if (wiring[i] == intermed) {
+					intermed = i;
 					break;
-				}	
+				}
 			}
 			if (intermed >= pos)
 				return intermed - pos;

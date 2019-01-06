@@ -1,5 +1,8 @@
-import java.util.Arrays;
-
+/**
+ * Represents the actual enigma machine
+ * @author Patrick
+ *
+ */
 public class EngMach {
 	private Rotor r1, r2, r3;
 	private final String REFLECTOR = "YRUHQSLDPXNGOKMIEBFZCWVJAT";
