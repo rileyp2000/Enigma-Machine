@@ -37,7 +37,7 @@ public class EngMach {
 	 */
 	public int encode(char inChar) {
 		int p = ((int) inChar) - 65;
-
+		
 		p = r3.process(p, true);
 		p = r2.process(p, true);
 		p = r1.process(p, true);
