@@ -8,6 +8,20 @@ public class EngMach {
 		this.r3 = r3;
 	}
 	
+	public EngMach(Rotor[] r) {
+		r1 = r[0];
+		r2 = r[1];
+		r3 = r[2];
+	}
+	
+	public int[] getRotorPos() {
+		return new int[] {r1.getPos(),r2.getPos(),r3.getPos()};
+	}
+	
+	public void encode() {
+		
+	}
+	
 	public void advance() {
 		int p = r3.advance();
 		if(p >= 26) {
