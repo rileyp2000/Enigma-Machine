@@ -51,14 +51,10 @@ public class Rotor {
 				return 26 - (pos - intermed);
 		}
 		else {
-			//subract offset
+			//add offset
 			//go from val to pos 
 			//subtract offset
-			int intermed;
-			if(in >= pos)
-				intermed = in - pos;
-			else
-				intermed = 26 - (pos - in);
+			int intermed = (in + pos) % 26;
 			
 			for(int i = 0; i < 26; i ++) {
 				if(wiring[i] == intermed) {

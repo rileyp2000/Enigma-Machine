@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 public class EngMach {
 	private Rotor r1,r2,r3;
+	private final String REFLECTOR = "YRUHQSLDPXNGOKMIEBFZCWVJAT";
 	
 	public EngMach(Rotor r1, Rotor r2, Rotor r3) {
 		this.r1 = r1;
@@ -26,21 +27,29 @@ public class EngMach {
 	
 	public int encode(char inChar) {
 		int p = ((int)inChar) - 65;
-		System.out.println(p + "  " + inChar + Arrays.toString(r3.wiring));
+		System.out.println(p + "  " + inChar);
 		p = r3.process(p,true);
-		/*System.out.println(p + "  ");
+		System.out.println(p + "  " + ((char)(p+65)));
 		p = r2.process(p,true);
-		System.out.println(p + "  ");
+		System.out.println(p + "  " + ((char)(p+65)));
 		p = r1.process(p,true);
-		System.out.println(p + "  ");
+		System.out.println(p + "  " + ((char)(p+65)));
+		
+		p = reflect(p);
+		System.out.println(p + "  " + ((char)(p+65)));
+		
 		p = r1.process(p,false);
-		System.out.println(p + "  ");
+		System.out.println(p + "  " + ((char)(p+65)));
 		p = r2.process(p,false);
-		System.out.println(p + "  ");
+		System.out.println(p + "  " + ((char)(p+65)));
 		p = r3.process(p,false);
-		System.out.println(p + "  ");*/
+		System.out.println(p + "  " + ((char)(p+65)));
 		
 		return 65 + p;
+	}
+	
+	public int reflect(int in) {
+		return REFLECTOR.charAt(in) - 65;
 	}
 	
 	public void advance() {

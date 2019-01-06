@@ -82,6 +82,7 @@ public class EnigmaMachine extends PApplet {
 			c = s.charAt(0);
 			letters[KYBD.indexOf(c)].isLit = !letters[KYBD.indexOf(c)].isLit;
 			keyDown = true;
+			enigma.advance();
 			encoded = enigma.encode(c);
 			System.out.println(encoded + " " + (char)encoded);
 			l2[KYBD.indexOf((char)encoded)].isLit = !l2[KYBD.indexOf((char)encoded)].isLit;
@@ -95,7 +96,6 @@ public class EnigmaMachine extends PApplet {
 		String s = Character.toString(key);
 		s = s.toUpperCase();
 		if (keyDown && s.charAt(0) == c) {
-			enigma.advance();
 			letters[KYBD.indexOf(c)].isLit = !letters[KYBD.indexOf(c)].isLit;
 			l2[KYBD.indexOf((char)encoded)].isLit = !l2[KYBD.indexOf((char)encoded)].isLit;
 			keyDown = false;
