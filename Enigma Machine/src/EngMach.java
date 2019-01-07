@@ -6,6 +6,7 @@
 public class EngMach {
 	private Rotor r1, r2, r3;
 	private final String REFLECTOR = "YRUHQSLDPXNGOKMIEBFZCWVJAT";
+	private Plugboard p;
 
 	public EngMach(Rotor r1, Rotor r2, Rotor r3) {
 		this.r1 = r1;

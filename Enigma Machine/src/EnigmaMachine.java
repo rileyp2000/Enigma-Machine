@@ -18,6 +18,7 @@ public class EnigmaMachine extends PApplet {
 	char c;
 	int encoded;
 	EngMach enigma;
+	private Plugboard p;
 
 	/**
 	 * Starts the window applet for the machine
@@ -29,7 +30,7 @@ public class EnigmaMachine extends PApplet {
 	}
 
 	public void settings() {
-		size(1250, 1000);
+		size(1250, 1500);
 	}
 
 	public void setup() {
@@ -40,6 +41,7 @@ public class EnigmaMachine extends PApplet {
 		text("Inputed Key:", 10, 50);
 		drawRotorBox();
 		createLetters();
+		p = new Plugboard(this);
 	}
 
 	/**
@@ -60,7 +62,7 @@ public class EnigmaMachine extends PApplet {
 	 * Draws the letters every frame, whether lit or not
 	 */
 	public void draw() {
-
+		p.draw();		
 		for (Letter l : letters) {
 			l.draw();
 		}
