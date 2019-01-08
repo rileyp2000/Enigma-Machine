@@ -30,18 +30,23 @@ public class EnigmaMachine extends PApplet {
 	}
 
 	public void settings() {
-		size(1250, 1500);
+		size(1800, 1500);
 	}
 
 	public void setup() {
 		enigma = new EngMach(createRotors());
+		p = new Plugboard(this);
 		f = createFont("Arial", 16, true);
 		textFont(f, 40);
 		fill(0);
 		text("Inputed Key:", 10, 50);
 		drawRotorBox();
 		createLetters();
-		p = new Plugboard(this);
+		p.setup();
+		p.draw();
+		textFont(f, 40);
+		
+		
 	}
 
 	/**
@@ -62,7 +67,6 @@ public class EnigmaMachine extends PApplet {
 	 * Draws the letters every frame, whether lit or not
 	 */
 	public void draw() {
-		p.draw();		
 		for (Letter l : letters) {
 			l.draw();
 		}
